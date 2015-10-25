@@ -1,0 +1,17 @@
+{
+    "contents" : "pollutantmean <- function(directory, pollutant, id = 1:332) {\n      ## 'directory' is a character vector of length 1 indicating\n      ## the location of the CSV files\n      \n      ## 'pollutant' is a character vector of length 1 indicating\n      ## the name of the pollutant for which we will calculate the\n      ## mean; either \"sulfate\" or \"nitrate\".\n      \n      ## 'id' is an integer vector indicating the monitor ID numbers\n      ## to be used\n      \n      ## Return the mean of the pollutant across all monitors list\n      ## in the 'id' vector (ignoring NA values)\n      ## NOTE: Do not round the result!\n      \n      ## Read and bind data\n      files_list <- list.files(directory, full.names = TRUE) #create a list of files\n      data <- data.frame()\n      for (i in id) {\n            #loops through the files, rbinding them together\n            data <- rbind(data, read.csv(files_list[i]))\n      }\n      mean(data[,pollutant], na.rm = TRUE) # calculate and return mean of given pollutant. Remove NA's.\n      \n}\n\n",
+    "created" : 1443836881122.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3994367970",
+    "id" : "580A59ED",
+    "lastKnownWriteTime" : 1443077723,
+    "path" : "C:/Users/aaronv/OneDrive/JHU DataScience/pollutantmean.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

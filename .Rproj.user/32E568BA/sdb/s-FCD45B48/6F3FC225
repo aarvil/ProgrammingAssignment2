@@ -1,0 +1,17 @@
+{
+    "contents" : "complete <- function(directory, range = 1:332) {\n      \n      ## 'directory' is a character vector of length 1 indicating\n      ## the location of the CSV files\n      \n      ## 'id' is an integer vector indicating the monitor ID numbers\n      ## to be used\n      \n      ## Return a data frame of the form:\n      ## id nobs\n      ## 1  117\n      ## 2  1041\n      ## ...\n      ## where 'id' is the monitor ID number and 'nobs' is the\n      ## number of complete cases\n      \n      files_list <- list.files(directory, full.names = TRUE) #create a list of files\n      \n      id <- vector(\"numeric\")\n      nobs <- vector(\"numeric\")\n      for (i in range) {\n            data <- read.csv(files_list[i]) #read file\n            completedata <- complete.cases(data) #find complete use cases\n            id <- c(id, i) #append ID row into Id vector\n            completecases <- length(data[completedata,]$ID)\n            nobs <- c(nobs, completecases) #append # of complete cases to Nobs vector\n            \n      }\n      data.frame(id, nobs) #return data frame \n}",
+    "created" : 1443836875750.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3085980967",
+    "id" : "6F3FC225",
+    "lastKnownWriteTime" : 1443078842,
+    "path" : "C:/Users/aaronv/OneDrive/JHU DataScience/complete.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

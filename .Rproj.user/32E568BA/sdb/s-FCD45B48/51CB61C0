@@ -1,0 +1,17 @@
+{
+    "contents" : "## The goal of these functions is to store a matrix and it's reverse to avoid unecessary computation \n## every time a reverse of the matrix is required. \n\n## This function takes a matrix as an input and caches it's reverse. \n\nmakeCacheMatrix <- function(x = matrix()) {\n      \n      r <- NULL\n      set <- function(y) {\n            x <<- y\n            m <<- NULL\n      }\n      get <- function() x\n      \n      setreverse <- function(reverse) r <<- reverse\n      getreverse <- function() r\n      list(set = set, get = get,\n           setreverse = setreverse,\n           getreverse = getreverse)\n\n}\n\n\n## This function calculates the reverse of a given matrix\n\ncacheSolve <- function(x, ...) {\n      ## Return a matrix that is the inverse of 'x'\n      r <- x$getreverse()\n      if(!is.null(r)) {\n            message(\"getting cached data\")\n            return(r)\n      }\n      data <- x$get()\n      r <- solve(data)\n      x$setreverse(r)\n      r\n}\n",
+    "created" : 1443587058283.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1594932898",
+    "id" : "51CB61C0",
+    "lastKnownWriteTime" : 1443588777,
+    "path" : "C:/Users/aaronv/OneDrive/JHU DataScience/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
